@@ -18,6 +18,30 @@ themeToggle.addEventListener("click", () => {
   applyTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light");
 });
 
+// ---------- live version ----------
+// keeps the version badges in sync with the latest published brewcode-cli.
+// primary source is our serverless proxy (edge-cached, same-origin, immune to
+// third-party blockers); direct registry is the fallback for local dev where
+// /api doesn't exist. hardcoded text in the HTML stays if both fail.
+(async () => {
+  const sources = ["/api/version", "https://registry.npmjs.org/brewcode-cli/latest"];
+  for (const url of sources) {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) continue;
+      const { version } = await r.json();
+      if (version) {
+        document.querySelectorAll("[data-version]").forEach((el) => {
+          el.textContent = el.dataset.version.replace("%v", version);
+        });
+        return;
+      }
+    } catch {
+      // try the next source
+    }
+  }
+})();
+
 // ---------- mobile nav ----------
 const navToggle = document.getElementById("nav-toggle");
 const siteNav = document.getElementById("site-nav");
