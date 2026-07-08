@@ -71,10 +71,11 @@ tabs.forEach((tab) => {
 const typedEl = document.getElementById("typed");
 const demoLines = [
   "brewcode",
-  "/provider ollama",
+  "/provider hicap",
   "fix the failing tests in src/parser",
-  "/model deepseek-coder",
+  "/provider codex",
   "refactor auth.ts and show me the diff",
+  "/provider ollama",
   "/review",
 ];
 

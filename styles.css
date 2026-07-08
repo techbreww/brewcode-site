@@ -278,7 +278,8 @@ h1 {
   padding: 4px 14px;
   background: var(--bg);
 }
-.strip-list li:last-child { color: var(--accent); border-color: var(--accent); }
+.strip-list li:last-child,
+.strip-list li.featured { color: var(--accent); border-color: var(--accent); }
 
 /* ---------- sections ---------- */
 .section { padding: 88px 0; }
