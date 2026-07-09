@@ -11,7 +11,7 @@ function applyTheme(theme) {
 
 const savedTheme =
   localStorage.getItem("brewcode-theme") ||
-  (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+  "dark";
 applyTheme(savedTheme);
 
 themeToggle.addEventListener("click", () => {
