@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>brewcode — open coding agent for any model</title>
+  <meta name="description" content="brewcode is an open coding agent for your terminal. any LLM — cloud or local. real tools, sandboxed shell, reviewable diffs. verified no phone-home." />
+  <meta property="og:title" content="brewcode — your agent. your models. your machine." />
+  <meta property="og:description" content="Open coding agent for any LLM. Anthropic, OpenAI, Gemini, Ollama, LM Studio, and 200+ models. Verified no telemetry." />
+  <meta property="og:image" content="assets/brewcode.png" />
+  <link rel="icon" type="image/png" href="assets/brewcode.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="shell header-row">
+      <a class="brand" href="#top">
+        <img src="assets/brewcode.png" alt="" width="28" height="28" />
+        <span class="brand-text">brewcode</span>
+        <span class="version-pill" data-version="v%v">vx.x.x</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#models">Models</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#desktop">Desktop</a>
+        <a href="#install">Install</a>
+        <a class="nav-ext" href="https://github.com/techbreww/brewcode" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle color theme" title="Toggle theme">
+          <span class="theme-icon theme-icon-dark" aria-hidden="true">◐</span>
+          <span class="theme-icon theme-icon-light" aria-hidden="true">◑</span>
+        </button>
+        <a class="btn btn-sm btn-primary header-cta" href="#install">Install</a>
+        <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="shell hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">Open source · model-neutral · verified no phone-home</p>
+          <h1>
+            Your agent.<br />
+            <span class="accent">Your models.</span><br />
+            Your machine.
+          </h1>
+          <p class="lede">
+            brewcode is an open coding agent that lives in your terminal.
+            It talks to any model you choose, uses real tools on your repo,
+            and keeps every change reviewable — never a black box.
+          </p>
+          <div class="hero-actions">
+            <button type="button" class="cmd" data-copy="npm install -g brewcode-cli">
+              <span class="cmd-prompt">$</span>
+              <span class="cmd-text">npm install -g brewcode-cli</span>
+              <span class="cmd-hint">copy</span>
+            </button>
+            <a class="btn btn-ghost" href="https://github.com/techbreww/brewcode" target="_blank" rel="noopener">View source</a>
+          </div>
+          <p class="meta-line">Node ≥ 22 · macOS, Linux, Windows, Android · works offline with local models</p>
+        </div>
+
+        <aside class="session" aria-label="Interactive demo of brewcode">
+          <div class="session-chrome">
+            <span class="session-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="session-title">brewcode</span>
+            <span class="session-meta" data-version="v%v">vx.x.x</span>
+          </div>
+          <div class="session-body">
+            <p class="session-tag">open coding agent · any LLM</p>
+            <div class="session-prompt-row">
+              <span class="session-caret" aria-hidden="true">›</span>
+              <span id="typed" class="session-typed"></span>
+              <span class="session-cursor" aria-hidden="true"></span>
+            </div>
+            <ul class="session-hints" aria-hidden="true">
+              <li><code>/provider</code> switch models mid-session</li>
+              <li><code>/review</code> inspect planned changes</li>
+              <li>tools stream live into the TUI</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="proof" aria-label="Product highlights">
+      <div class="shell proof-grid">
+        <article class="proof-item">
+          <h2>Real agent loop</h2>
+          <p>Files, shell, ripgrep, web, and subagents — not autocomplete with extra steps.</p>
+        </article>
+        <article class="proof-item">
+          <h2>Any model</h2>
+          <p>Cloud, gateway, or fully local. Switch providers with one command. No lock-in.</p>
+        </article>
+        <article class="proof-item">
+          <h2>Reviewable by design</h2>
+          <p>Sandbox, plan mode, git worktrees, and streaming diffs keep you in control.</p>
+        </article>
+        <article class="proof-item">
+          <h2>Nothing phones home</h2>
+          <p>Every release is scanned. Telemetry in the bundle fails the build.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Capabilities</p>
+          <h2>Built for serious work in real repositories</h2>
+          <p class="section-lead">
+            brewcode is an agent with tools, permissions, and a streaming TUI —
+            designed so you can trust what it does on your machine.
+          </p>
+        </header>
+
+        <div class="cap-grid">
+          <article class="cap">
+            <p class="cap-label">01</p>
+            <h3>Tools that touch the repo</h3>
+            <p>
+              Read and edit files, run shell commands, search with ripgrep,
+              browse the web, and spawn subagents. Output streams live into
+              a fast React-powered TUI with themes, vim bindings, and a statusline.
+            </p>
+          </article>
+          <article class="cap">
+            <p class="cap-label">02</p>
+            <h3>Sandboxed. Permissioned. Reviewable.</h3>
+            <p>
+              Bash runs inside a sandbox with a per-tool permission system.
+              Plan mode, git worktrees, and token-by-token diffs make every
+              change something you can inspect before it lands.
+            </p>
+          </article>
+          <article class="cap">
+            <p class="cap-label">03</p>
+            <h3>Profiles that travel with the repo</h3>
+            <p>
+              Drop a <code>.brewcode-profile.json</code> to pin model, base URL,
+              and runtime defaults. Every clone boots the same agent configuration.
+            </p>
+          </article>
+          <article class="cap">
+            <p class="cap-label">04</p>
+            <h3>Extensible end to end</h3>
+            <p>
+              MCP servers, skills, hooks, 150+ slash commands, scheduled tasks,
+              swarms, and workflows — plus a gRPC server and editor modes for
+              your own tooling.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-band" id="models">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Models</p>
+          <h2>Bring your own stack</h2>
+          <p class="section-lead">
+            One terminal. Cloud APIs, policy gateways, or fully offline local servers —
+            brewcode speaks them natively.
+          </p>
+        </header>
+
+        <div class="model-cols">
+          <article class="model-col">
+            <h3>Cloud</h3>
+            <p>
+              hicap, OpenAI &amp; Codex (ChatGPT OAuth), Anthropic (direct, Bedrock,
+              Vertex, Foundry), Azure OpenAI, Google Gemini, GitHub Copilot,
+              DeepSeek, Kimi, Qwen, Grok, GLM, and more.
+            </p>
+            <ul class="tag-list">
+              <li>hicap</li>
+              <li>codex</li>
+              <li>anthropic</li>
+              <li>openai</li>
+              <li>gemini</li>
+              <li>bedrock</li>
+              <li>vertex</li>
+              <li>azure</li>
+              <li>copilot</li>
+              <li>+200</li>
+            </ul>
+          </article>
+          <article class="model-col">
+            <h3>Gateways</h3>
+            <p>
+              Route through OpenRouter, Together AI, or LiteLLM for policy,
+              cost control, and failover. Pick a goal like
+              <code>latency</code>, <code>balanced</code>, or <code>coding</code>
+              and let the profile choose.
+            </p>
+            <ul class="tag-list">
+              <li>openrouter</li>
+              <li>together</li>
+              <li>litellm</li>
+            </ul>
+          </article>
+          <article class="model-col">
+            <h3>Local</h3>
+            <p>
+              Ollama and LM Studio work with zero API keys and zero network.
+              <code>ollama launch brewcode</code> and you are coding offline
+              with Llama, Qwen, or DeepSeek-Coder.
+            </p>
+            <ul class="tag-list">
+              <li>ollama</li>
+              <li>lm studio</li>
+              <li>offline</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="privacy">
+      <div class="shell privacy-layout">
+        <div class="privacy-copy">
+          <header class="section-head left">
+            <p class="eyebrow">Privacy</p>
+            <h2>Verified no phone-home</h2>
+            <p class="section-lead">
+              Every release build is mechanically scanned before it ships.
+              If a telemetry endpoint, metrics call, or infrastructure fingerprint
+              shows up in the bundle, <strong>the build fails</strong>.
+            </p>
+          </header>
+          <ul class="check-list">
+            <li>No telemetry or usage metrics endpoints</li>
+            <li>No environment or infra fingerprinting</li>
+            <li>No feedback back-channels</li>
+            <li>Local models via Ollama or LM Studio never leave your machine</li>
+          </ul>
+          <p class="quiet">
+            Your code and prompts go only to the model provider <em>you</em> choose.
+            Nothing calls home.
+          </p>
+        </div>
+
+        <div class="session session-compact" aria-label="Privacy verification command output">
+          <div class="session-chrome">
+            <span class="session-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="session-title">verify</span>
+          </div>
+          <pre class="session-code"><code><span class="t-muted">$</span> bun run verify:privacy
+<span class="t-muted">scanning dist/cli.mjs …</span>
+<span class="t-ok">✓</span> no telemetry endpoints
+<span class="t-ok">✓</span> no metrics batching
+<span class="t-ok">✓</span> no infra fingerprinting
+<span class="t-ok">✓</span> no feedback channels
+
+<span class="t-ok">✓ no banned patterns in build output</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-band" id="desktop">
+      <div class="shell desktop-layout">
+        <div>
+          <header class="section-head left">
+            <p class="eyebrow">Desktop</p>
+            <h2>Same agent. Native shell.</h2>
+            <p class="section-lead">
+              brewcode desktop is a Tauri 2 app around the exact same agent loop
+              as the CLI — one brain, two frontends.
+            </p>
+          </header>
+          <ul class="check-list">
+            <li>Chat, reviewer, and require-plan modes</li>
+            <li>Live streaming of thinking, tool activity, and diffs</li>
+            <li>Model &amp; provider picker, workspace switcher, git branches</li>
+            <li>Plan / files / terminal inspector tabs</li>
+            <li>macOS, Windows, and Linux</li>
+          </ul>
+        </div>
+        <div class="desktop-card" aria-hidden="true">
+          <div class="desktop-card-bar">
+            <span>BrewCode Desktop</span>
+            <span data-version="CLI %v">CLI x.x.x</span>
+          </div>
+          <div class="desktop-card-body">
+            <div class="desktop-rail">
+              <span class="rail-item is-on">chat</span>
+              <span class="rail-item">reviewer</span>
+              <span class="rail-item">plan</span>
+              <span class="rail-item muted">files</span>
+              <span class="rail-item muted">terminal</span>
+            </div>
+            <div class="desktop-pane">
+              <p class="pane-kicker">streaming diff</p>
+              <p class="diff add">+ const provider = profile.resolve()</p>
+              <p class="diff del">- const provider = "hardcoded"</p>
+              <p class="pane-note">Same agent loop as the CLI. Review before apply.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Install</p>
+          <h2>Zero to agent in three steps</h2>
+          <p class="section-lead">Pick a path. Copy a command. Start brewing.</p>
+        </header>
+
+        <div class="tabs" role="tablist" aria-label="Install methods">
+          <button type="button" class="tab is-active" role="tab" aria-selected="true" data-tab="npm" id="tab-npm">npm</button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-tab="local" id="tab-local">Local model</button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-tab="source" id="tab-source">From source</button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-tab="nightly" id="tab-nightly">Nightly</button>
+        </div>
+
+        <div class="tab-panel is-active" data-panel="npm" role="tabpanel" aria-labelledby="tab-npm">
+          <ol class="steps">
+            <li>
+              <p>Install the CLI globally</p>
+              <button type="button" class="cmd block" data-copy="npm install -g brewcode-cli">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">npm install -g brewcode-cli</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+            <li>
+              <p>Open any repository</p>
+              <button type="button" class="cmd block" data-copy="cd my-project">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">cd my-project</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+            <li>
+              <p>Start brewing</p>
+              <button type="button" class="cmd block" data-copy="brewcode">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">brewcode</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+          </ol>
+        </div>
+
+        <div class="tab-panel" data-panel="local" role="tabpanel" aria-labelledby="tab-local" hidden>
+          <ol class="steps">
+            <li>
+              <p>Point brewcode at your local Ollama server — no API key needed</p>
+              <button type="button" class="cmd block" data-copy="export OPENAI_BASE_URL=http://localhost:11434/v1">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">export OPENAI_BASE_URL=http://localhost:11434/v1</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+            <li>
+              <p>Or launch straight from Ollama</p>
+              <button type="button" class="cmd block" data-copy="ollama launch brewcode">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">ollama launch brewcode</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+            <li>
+              <p>Your code never leaves your machine</p>
+              <button type="button" class="cmd block" data-copy="brewcode">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">brewcode</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+          </ol>
+        </div>
+
+        <div class="tab-panel" data-panel="source" role="tabpanel" aria-labelledby="tab-source" hidden>
+          <ol class="steps">
+            <li>
+              <p>Clone and install (Bun 1.3+)</p>
+              <button type="button" class="cmd block" data-copy="git clone https://github.com/techbreww/brewcode.git && cd brewcode && bun install">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">git clone …/brewcode.git &amp;&amp; cd brewcode &amp;&amp; bun install</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+            <li>
+              <p>Build with the privacy gate</p>
+              <button type="button" class="cmd block" data-copy="bun run build:verified">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">bun run build:verified</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+            <li>
+              <p>Link it globally</p>
+              <button type="button" class="cmd block" data-copy="npm link">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">npm link</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+          </ol>
+        </div>
+
+        <div class="tab-panel" data-panel="nightly" role="tabpanel" aria-labelledby="tab-nightly" hidden>
+          <ol class="steps">
+            <li>
+              <p>Live on the edge with the nightly dist-tag</p>
+              <button type="button" class="cmd block" data-copy="npm install -g brewcode-cli@nightly">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">npm install -g brewcode-cli@nightly</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+            <li>
+              <p>Go back to stable any time</p>
+              <button type="button" class="cmd block" data-copy="npm install -g brewcode-cli@latest">
+                <span class="cmd-prompt">$</span>
+                <span class="cmd-text">npm install -g brewcode-cli@latest</span>
+                <span class="cmd-hint">copy</span>
+              </button>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-band" id="docs">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Docs</p>
+          <h2>Go deeper</h2>
+        </header>
+        <div class="doc-grid">
+          <a class="doc-card" href="https://github.com/techbreww/brewcode/blob/main/docs/quick-start-mac-linux.md" target="_blank" rel="noopener">
+            <strong>Quick start</strong>
+            <span>macOS, Linux &amp; Windows onboarding</span>
+          </a>
+          <a class="doc-card" href="https://github.com/techbreww/brewcode/blob/main/docs/advanced-setup.md" target="_blank" rel="noopener">
+            <strong>Advanced setup</strong>
+            <span>Every provider recipe &amp; env var</span>
+          </a>
+          <a class="doc-card" href="https://github.com/techbreww/brewcode/blob/main/PLAYBOOK.md" target="_blank" rel="noopener">
+            <strong>Local-model playbook</strong>
+            <span>Copy/paste prompts that work offline</span>
+          </a>
+          <a class="doc-card" href="https://github.com/techbreww/brewcode/blob/main/ANDROID_INSTALL.md" target="_blank" rel="noopener">
+            <strong>Android install</strong>
+            <span>Run brewcode in Termux</span>
+          </a>
+          <a class="doc-card" href="https://github.com/techbreww/brewcode/blob/main/docs/integrations" target="_blank" rel="noopener">
+            <strong>Integrations catalog</strong>
+            <span>TOML-first provider definitions</span>
+          </a>
+          <a class="doc-card" href="https://github.com/techbreww/brewcode/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">
+            <strong>Contributing</strong>
+            <span>Help brew better code</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="shell cta-inner">
+        <h2>Install once. Point at any model. Ship with review.</h2>
+        <button type="button" class="cmd cmd-lg" data-copy="npm install -g brewcode-cli">
+          <span class="cmd-prompt">$</span>
+          <span class="cmd-text">npm install -g brewcode-cli</span>
+          <span class="cmd-hint">copy</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div class="footer-brand">
+        <img src="assets/brewcode.png" alt="" width="22" height="22" />
+        <span>brewcode</span>
+      </div>
+      <p class="footer-note">Open coding agent for any LLM · © 2026 techbreww</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="https://github.com/techbreww/brewcode" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.npmjs.com/package/brewcode-cli" target="_blank" rel="noopener">npm</a>
+        <a href="https://github.com/techbreww/brewcode/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a>
+        <a href="https://github.com/techbreww/brewcode/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+  <script src="app.js"></script>
+</body>
+</html>

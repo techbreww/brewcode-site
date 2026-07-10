@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# dependencies (none today, but just in case)
+node_modules/
+
+# vercel
+.vercel
+
+# logs
+*.log
+
+# local tool state
+.claude/settings.local.json
