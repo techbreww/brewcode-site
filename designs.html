@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>brewcode — design concepts</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #0e0f12; color: #ECEAE4; min-height: 100vh; padding: 48px 24px;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; }
+    h1 { font-size: 28px; letter-spacing: -0.02em; }
+    p.lede { color: #9A9A93; margin: 10px 0 32px; }
+    a.back { color: #D8A657; font-size: 14px; text-decoration: none; }
+    ul { list-style: none; padding: 0; display: grid; gap: 12px; }
+    li a {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 18px 20px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px;
+      color: #ECEAE4; text-decoration: none; transition: border-color .15s, background .15s;
+    }
+    li a:hover { border-color: #D8A657; background: #16181D; }
+    li a .name { font-weight: 600; font-size: 17px; }
+    li a .go { color: #9A9A93; font-size: 14px; }
+    footer { margin-top: 36px; color: #6B6B64; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>BrewCode — design concepts</h1>
+    <p class="lede">Experimental redesigns of the marketing site, kept side by side. The live production site is unchanged at the repo root.</p>
+    <a class="back" href="./">← back to current site</a>
+    <ul style="margin-top:24px">
+      <li><a href="Hy3/"><span class="name">Hy3</span><span class="go">open →</span></a></li>
+      <li><a href="mimo-v2.5/"><span class="name">mimo-v2.5</span><span class="go">open →</span></a></li>
+      <li><a href="mimo-v2.5-pro/"><span class="name">mimo-v2.5-pro</span><span class="go">open →</span></a></li>
+      <li><a href="kimi-k2.7-code/"><span class="name">kimi-k2.7-code</span><span class="go">open →</span></a></li>
+      <li><a href="glm-5.2/"><span class="name">glm-5.2</span><span class="go">open →</span></a></li>
+      <li><a href="deepseek-v4-pro/"><span class="name">deepseek-v4-pro</span><span class="go">open →</span></a></li>
+      <li><a href="grok-4.5/"><span class="name">grok-4.5</span><span class="go">open →</span></a></li>
+    </ul>
+    <footer>Tip: visit each with a trailing slash (e.g. /Hy3/) so its styles and assets load from its own folder.</footer>
+  </div>
+</body>
+</html>
